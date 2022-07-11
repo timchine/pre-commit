@@ -1,0 +1,5 @@
+- id: version
+  name: "version"
+  entry: pre-commit
+  language: "golang"
+  description: "试试"
