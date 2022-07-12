@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"os/exec"
 	"strconv"
 )
 
@@ -32,5 +33,9 @@ func main() {
 	tb := bytes.Join(bs, []byte{'.'})
 	fmt.Println("new version", string(tb))
 	file.Write(tb)
+	cmd := exec.Command("git", "add", "./version")
+	err = cmd.Run()
+	if err != nil {
+		fmt.Println(err)
+	}
 }
-
